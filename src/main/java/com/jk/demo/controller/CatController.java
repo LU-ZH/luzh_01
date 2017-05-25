@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by dell on 2017/5/22.
@@ -48,5 +49,16 @@ public class CatController {
     public Iterable<Cat> findMyCatName(String cn){
         Iterable<Cat> cats = catService.findMyCatName(cn);
         return cats;
+    }
+
+    @RequestMapping("/selectByCatName")
+    public List<Cat> selectByCatName(String catName){
+        List<Cat> cats = catService.selectByCatName(catName);
+        return cats;
+    }
+
+    @RequestMapping("/findOneCat")
+    public Cat findOneCatById(Integer id){
+        return catService.findOneCatById(id);
     }
 }

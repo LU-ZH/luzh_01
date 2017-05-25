@@ -1,12 +1,14 @@
 package com.jk.demo.service;
 
 import com.jk.demo.bean.Cat;
+import com.jk.demo.dao.CatDao;
 import com.jk.demo.repository.Cat2Repository;
 import com.jk.demo.repository.CatRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by dell on 2017/5/22.
@@ -19,6 +21,9 @@ public class CatService {
 
     @Resource
     private Cat2Repository cat2Repository;
+
+    @Resource
+    private CatDao catDao;
 
     /**
      * save,update,delete 方法需要绑定事务
@@ -57,5 +62,13 @@ public class CatService {
     public Iterable<Cat> findMyCatName(String cn){
         System.out.println("This is mySelect.");
         return cat2Repository.findMyCatName(cn);
+    }
+
+    public List<Cat> selectByCatName(String catName){
+        return catDao.selectByCatName(catName);
+    }
+
+    public Cat findOneCatById(Integer id) {
+        return catDao.selectOneCatById(id);
     }
 }

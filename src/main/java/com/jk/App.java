@@ -73,9 +73,9 @@ public class App
         fastConverter.setFastJsonConfig(fastJsonConfig);
 
         //处理乱码
-        List<MediaType> fastMediaTypes = new ArrayList<>();
-        fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
-        fastConverter.setSupportedMediaTypes(fastMediaTypes);
+//        List<MediaType> fastMediaTypes = new ArrayList<>();
+//        fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+//        fastConverter.setSupportedMediaTypes(fastMediaTypes);
 
         //4.
         HttpMessageConverter<?> converter = fastConverter;
